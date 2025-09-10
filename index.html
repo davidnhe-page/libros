@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Castro | Comunicación y Educación Equina Consciente</title>
+    <style>
+        :root {
+            --primary-color: #2c5e1a;
+            --secondary-color: #8fc786;
+            --accent-color: #f2c94c;
+            --dark-color: #333333;
+            --light-color: #f8f8f8;
+            --text-color: #333333;
+            --text-light: #777777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%238fc786" fill-opacity="0.1" width="100" height="100"/></svg>');
+            background-size: cover;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text-light);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #1f4412;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e5b732;
+        }
+        
+        /* Books Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .book-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .book-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .book-card:hover .book-image img {
+            transform: scale(1.05);
+        }
+        
+        .book-details {
+            padding: 20px;
+        }
+        
+        .book-details h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .book-details p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .platform-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .platform-btn {
+            padding: 8px 15px;
+            background-color: var(--light-color);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .platform-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        /* Courses Section */
+        .courses {
+            background-color: white;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .course-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .course-details {
+            padding: 20px;
+        }
+        
+        .course-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+            color: white;
+        }
+        
+        .testimonials .section-title h2 {
+            color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text:before {
+            content: """;
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.2;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        /* About Section */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        
+        /* Philosophy Section */
+        .philosophy {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .philosophy-content p {
+            margin-bottom: 25px;
+            color: var(--text-light);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--secondary-color);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            padding: 0 20px;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* SEO Helper (hidden but indexable) */
+        .seo-helper {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .nav-menu {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-menu li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero {
+                padding: 180px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 4px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SEO Helper (hidden but indexable) -->
+    <div class="seo-helper">
+        doma no violenta, doma natural, doma india, doma etológica, doma consciente, doma respetuosa, doma equina
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">David Castro</a>
+            <ul class="nav-menu">
+                <li><a href="#libros">Libros</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#filosofia">Filosofía</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Comunicación y Educación Equina Consciente</h1>
+            <p>Descubre el método de relacionamiento no violento basado en neurociencia, respeto mutuo y libertad que está transformando la relación humano-caballo.</p>
+            <a href="#libros" class="btn">Descubrir Libros</a>
+            <a href="#cursos" class="btn btn-secondary">Ver Cursos</a>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="filosofia" class="section philosophy">
+        <div class="container">
+            <div class="section-title">
+                <h2>Una nueva forma de relacionarnos</h2>
+                <p>Partiendo del principio de reconocer en el caballo a un ser esencialmente emocional, inteligente y social</p>
+            </div>
+            
+            <div class="philosophy-content">
+                <p>Casi todos hemos soñado en algún momento poder contactar con caballos. Hemos soñado con una relación única y especial o con tener el don que nos acerque de manera natural y plena a esta criatura, para que ella nos haga entrega de su gran poder y gracia, su bello espíritu de libertad y su incondicional amor.</p>
+                
+                <p>Pero… ¿Qué es lo que siente el caballo con respecto a esto? ¿Qué es lo que necesita? ¿Quién o qué es el caballo? ¿Es posible el encuentro sin este entendimiento?</p>
+                
+                <p>Partiendo del principio de reconocer en el caballo a un ser esencialmente emocional, inteligente y social, poseedor de voluntad propia y necesidades específicas, podremos desplegar su potencial de interacción con el hombre, en un marco de respeto mutuo y libertad de expresión.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="libros" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mis Libros</h2>
+                <p>Obras fundamentales para entender y aplicar la educación equina consciente y construir una relación de respeto mutuo con los caballos.</p>
+            </div>
+            
+            <div class="books-grid">
+                <!-- Book 1 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect fill='%238fc786' width='300' height='300'/><text fill='%232c5e1a' font-family='Arial' font-size='20' x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>El Silencio de los Caballos</text></svg>" alt="El Silencio de los Caballos">
+                    </div>
+                    <div class="book-details">
+                        <h3>El Silencio de los Caballos</h3>
+                        <p>La Revolución Ética en la Educación Equina. Descubre el método de conexión no violenta basado en neurociencia.</p>
+                        <div class="platform-buttons">
+                            <a href="#" class="platform-btn">Amazon</a>
+                            <a href="#" class="platform-btn">Google Play</a>
+                            <a href="#" class="platform-btn">Apple Books</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Book 2 -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect fill='%23f2c94c' width='300' height='300'/><text fill='%23333' font-family='Arial' font-size='20' x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>Y le susurré al caballo</text></svg>" alt="Y le susurré al caballo">
+                    </div>
+                    <div class="book-details">
+                        <h3>Y le susurré al caballo</h3>
+                        <p>Una historia de sanación emocional y libertad que explora la comunicación más allá de las palabras.</p>
+                        <div class="platform-buttons">
+                            <a href="#" class="platform-btn">Amazon</a>
+                            <a href="#" class="platform-btn">Google Play</a>
+                            <a href="#" class="platform-btn">Apple Books</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="cursos" class="section courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cursos y Talleres</h2>
+                <p>Aprende directamente con David Castro a través de experiencias educativas transformadoras.</p>
+            </div>
+            
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect fill='%232c5e1a' width='400' height='200'/><text fill='%23fff' font-family='Arial' font-size='16' x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>Taller de Comunicación Consciente</text></svg>" alt="Taller de Comunicación Consciente">
+                    </div>
+                    <div class="course-details">
+                        <h3>Taller de Comunicación Consciente</h3>
+                        <div class="course-info">
+                            <span>Online</span>
+                            <span>8 semanas</span>
+                        </div>
+                        <p>Aprende los fundamentos de la educación ética y cómo aplicarlos en tu práctica diaria con caballos.</p>
+                        <a href="#" class="btn">Más Información</a>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect fill='%238fc786' width='400' height='200'/><text fill='%23fff' font-family='Arial' font-size='16' x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>Seminario de Hipología</text></svg>" alt="Seminario de Hipología">
+                    </div>
+                    <div class="course-details">
+                        <h3>Seminario de Hipología</h3>
+                        <div class="course-info">
+                            <span>Presencial</span>
+                            <span>2 días</span>
+                        </div>
+                        <p>Profundiza en el estudio científico del caballo y su comportamiento desde una perspectiva ética.</p>
+                        <a href="#" class="btn">Más Información</a>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect fill='%23f2c94c' width='400' height='200'/><text fill='%23333' font-family='Arial' font-size='16' x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>Curso Avanzado</text></svg>" alt="Curso Avanzado">
+                    </div>
+                    <div class="course-details">
+                        <h3>Curso Avanzado de Relacionamiento Equino</h3>
+                        <div class="course-info">
+                            <span>Mixto</span>
+                            <span>12 semanas</span>
+                        </div>
+                        <p>Para quienes desean dominar las técnicas más avanzadas de comunicación y conexión con caballos.</p>
+                        <a href="#" class="btn">Más Información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi" class="section">
+        <div class="container">
+            <div class="about">
+                <div class="about-image">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='400' viewBox='0 0 500 400'><rect fill='%23ddd' width='500' height='400'/><text fill='%23333' font-family='Arial' font-size='20' x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>Imagen de David Castro</text></svg>" alt="David Castro">
+                </div>
+                <div class="about-content">
+                    <h2>Sobre David Castro</h2>
+                    <p>Fundador de la primera escuela de Hipología en Latinoamérica y referente internacional en educación equina consciente. Tras años como educador tradicional, cuestionó los métodos basados en la coerción y desarrolló un enfoque revolucionario basado en el respeto mutuo y la neurociencia.</p>
+                    <p>Su trabajo ha sido destacado en medios como La Vanguardia y Bichos de Campo, y ha impulsado un movimiento de conciencia sobre el trato ético a los caballos.</p>
+                    <a href="#" class="btn">Conoce más sobre mi historia</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimonios</h2>
+                <p>Lo que dicen quienes han leído mis libros y participado en mis cursos.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"La verdadera amistad con los caballos es la clave para la comunicación y la comunión, sin sometimiento, sin imposición. Solo este modo operante es la base efectiva para el mutuo aprendizaje y la libertad." Esa es una de las tantas frases que se pueden encontrar en el libro "El silencio de los caballos" de David Castro.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='25' fill='%23ccc'/><text fill='%23333' font-family='Arial' font-size='12' x='25' y='28' dominant-baseline='middle' text-anchor='middle'>P</text></svg>" alt="Pablo Temechuck">
+                        </div>
+                        <div class="author-details">
+                            <h4>Pablo Temechuck</h4>
+                            <p>Lector</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>En una cultura tan hostil; de maltrato y sometimiento para con los caballos, David Castro nos enseña con sencillez y claridad, que existen otras maneras de llegar a ellos... la humildad y la observación, el respeto y por sobre todo El Amor por estos Seres Maravillosos.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='25' fill='%23ccc'/><text fill='%23333' font-family='Arial' font-size='12' x='25' y='28' dominant-baseline='middle' text-anchor='middle'>S</text></svg>" alt="Susana Coca">
+                        </div>
+                        <div class="author-details">
+                            <h4>Susana Coca</h4>
+                            <p>Lectora</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Se trata de un texto de gran trascendencia, humanidad en el sentido más profundo. El universo de aquellos animales que han servido al hombre por milenios, está, con este libro como ejemplo y guía, cambiando.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='25' fill='%23ccc'/><text fill='%23333' font-family='Arial' font-size='12' x='25' y='28' dominant-baseline='middle' text-anchor='middle'>D</text></svg>" alt="Dante Anzolini">
+                        </div>
+                        <div class="author-details">
+                            <h4>Dante Anzolini</h4>
+                            <p>Lector</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>La verdad es que tengo que hacer un antes y un después, de haber empezado a leer lo que escribes. Ahora estoy viviendo una etapa de transición bastante dura. Lo que si se, es que he hecho muchas cosas mal por ignorancia y ahora puedo verlo desde otro enfoque.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='25' fill='%23ccc'/><text fill='%23333' font-family='Arial' font-size='12' x='25' y='28' dominant-baseline='middle' text-anchor='middle'>G</text></svg>" alt="Gustavo Di Gioia">
+                        </div>
+                        <div class="author-details">
+                            <h4>Gustavo Di Gioia</h4>
+                            <p>Lector</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Para el día del amigo me regalaron el libro. Me encantó. Aprendí, lloré. El título del libro se refleja en la mirada de todos esos caballos que vi y sigo viendo. Su sufrimiento y padecer por ambiciones y necesidades humanas.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='25' fill='%23ccc'/><text fill='%23333' font-family='Arial' font-size='12' x='25' y='28' dominant-baseline='middle' text-anchor='middle'>L</text></svg>" alt="Lola Chaparro">
+                        </div>
+                        <div class="author-details">
+                            <h4>Lola Chaparro</h4>
+                            <p>Lectora</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>David Castro is well worth reading. The depth of his insight takes you places you may have not thought possible, though he makes them real for you. A new culture is developing and David welcomes you to be a part of it.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='25' fill='%23ccc'/><text fill='%23333' font-family='Arial' font-size='12' x='25' y='28' dominant-baseline='middle' text-anchor='middle'>D</text></svg>" alt="Donna C Miller">
+                        </div>
+                        <div class="author-details">
+                            <h4>Donna C Miller</h4>
+                            <p>Reader</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Suscríbete a mi newsletter</h2>
+            <p>Recibe artículos exclusivos, consejos sobre educación equina consciente y avisos de nuevos cursos y publicaciones.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Tu correo electrónico" required>
+                <button type="submit" class="newsletter-btn">Suscribirme</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>David Castro</h3>
+                    <p>Revolucionando la relación humano-caballo a través del respeto, la ciencia y la conexión auténtica.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#libros">Libros</a></li>
+                        <li><a href="#cursos">Cursos</a></li>
+                        <li><a href="#filosofia">Filosofía</a></li>
+                        <li><a href="#sobre-mi">Sobre mí</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contacto@davidcastro.com">contacto@davidcastro.com</a></li>
+                        <li><a href="#">Formulario de contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Sígueme</h3>
+                    <div class="social-links">
+                        <a href="#"><span>FB</span></a>
+                        <a href="#"><span>IG</span></a>
+                        <a href="#"><span>YT</span></a>
+                        <a href="#"><span>TW</span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 David Castro. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Simple form validation for newsletter
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                if (emailInput.value && emailInput.value.includes('@')) {
+                    alert('¡Gracias por suscribirte! Pronto recibirás noticias y contenido exclusivo.');
+                    emailInput.value = '';
+                } else {
+                    alert('Por favor, introduce una dirección de correo electrónico válida.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
