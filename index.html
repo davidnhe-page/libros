@@ -283,6 +283,16 @@
             color: var(--dark-color);
         }
         
+        .book-language {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
         .book-details p {
             color: var(--text-light);
             margin-bottom: 15px;
@@ -536,6 +546,16 @@
             font-size: 0.9rem;
         }
         
+        /* SEO Helper (hidden but indexable) */
+        .seo-helper {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
@@ -585,6 +605,11 @@
     </style>
 </head>
 <body>
+    <!-- SEO Helper (hidden but indexable) -->
+    <div class="seo-helper">
+        doma no violenta, doma natural, doma india, doma etológica, doma consciente, doma respetuosa, doma equina
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -640,7 +665,7 @@
             
             <div class="section-title">
                 <h2>Modalidades de Acompañamiento</h2>
-                <p>Elije la forma que mejor se adapte a tus necesidades y circumstances</p>
+                <p>Elije la forma que mejor se adapte a tus necesidades y circunstancias</p>
             </div>
             
             <div class="options-container">
@@ -686,16 +711,17 @@
         <div class="container">
             <div class="section-title">
                 <h2>Mis Libros</h2>
-                <p>Obras fundamentales para entender y aplicar la educación equina consciente y construir una relación de respeto mutuo con los caballos.</p>
+                <p>Obras fundamentales para entender y aplicar la educación equina consciente en múltiples idiomas.</p>
             </div>
             
             <div class="books-grid">
-                <!-- Book 1 -->
+                <!-- El Silencio de los Caballos (ES) -->
                 <div class="book-card">
                     <div class="book-image">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect fill='%238fc786' width='300' height='300'/><text fill='%232c5e1a' font-family='Arial' font-size='20' x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>El Silencio de los Caballos</text></svg>" alt="El Silencio de los Caballos">
+                        <img src="https://m.media-amazon.com/images/I/81wtjWmkAgL._SL1417_.jpg" alt="El Silencio de los Caballos - David Castro - Educación equina consciente">
                     </div>
                     <div class="book-details">
+                        <span class="book-language">ESPAÑOL</span>
                         <h3>El Silencio de los Caballos</h3>
                         <p>La Revolución Ética en la Educación Equina. Descubre el método de conexión no violenta basado en neurociencia.</p>
                         <div class="platform-buttons">
@@ -706,14 +732,66 @@
                     </div>
                 </div>
                 
-                <!-- Book 2 -->
+                <!-- Y le susurré al caballo (ES) -->
                 <div class="book-card">
                     <div class="book-image">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><rect fill='%23f2c94c' width='300' height='300'/><text fill='%23333' font-family='Arial' font-size='20' x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>Y le susurré al caballo</text></svg>" alt="Y le susurré al caballo">
+                        <img src="https://m.media-amazon.com/images/I/71ZrStxogrL._SL1360_.jpg" alt="Y le susurré al caballo - David Castro - Sanación emocional y libertad">
                     </div>
                     <div class="book-details">
+                        <span class="book-language">ESPAÑOL</span>
                         <h3>Y le susurré al caballo</h3>
                         <p>Una historia de sanación emocional y libertad que explora la comunicación más allá de las palabras.</p>
+                        <div class="platform-buttons">
+                            <a href="#" class="platform-btn">Amazon</a>
+                            <a href="#" class="platform-btn">Google Play</a>
+                            <a href="#" class="platform-btn">Apple Books</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- The Silence of Horses (EN) -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <img src="https://m.media-amazon.com/images/I/81ZxaBcVhBL._SL1500_.jpg" alt="The Silence of Horses - David Castro - Ethical equine education">
+                    </div>
+                    <div class="book-details">
+                        <span class="book-language">ENGLISH</span>
+                        <h3>The Silence of Horses</h3>
+                        <p>The Ethical Revolution in Equine Education. Discover the non-violent connection method based on neuroscience.</p>
+                        <div class="platform-buttons">
+                            <a href="#" class="platform-btn">Amazon</a>
+                            <a href="#" class="platform-btn">Google Play</a>
+                            <a href="#" class="platform-btn">Apple Books</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- O Silêncio dos Cavalos (PT) -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <img src="https://m.media-amazon.com/images/I/81UDtrO9ToL._SL1500_.jpg" alt="O Silêncio dos Cavalos - David Castro - Educação equina consciente">
+                    </div>
+                    <div class="book-details">
+                        <span class="book-language">PORTUGUÊS</span>
+                        <h3>O Silêncio dos Cavalos</h3>
+                        <p>A Revolução Ética na Educação Equina. Descubra o método de conexão não violenta baseado em neurociência.</p>
+                        <div class="platform-buttons">
+                            <a href="#" class="platform-btn">Amazon</a>
+                            <a href="#" class="platform-btn">Google Play</a>
+                            <a href="#" class="platform-btn">Apple Books</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- E sussurrai al cavallo (IT) -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <img src="https://m.media-amazon.com/images/I/71+MkGUJquL._SL1437_.jpg" alt="E sussurrai al cavallo - David Castro - Guarigione emotiva e libertà">
+                    </div>
+                    <div class="book-details">
+                        <span class="book-language">ITALIANO</span>
+                        <h3>E sussurrai al cavallo</h3>
+                        <p>Una storia di guarigione emotiva e libertà che esplora la comunicazione oltre le parole.</p>
                         <div class="platform-buttons">
                             <a href="#" class="platform-btn">Amazon</a>
                             <a href="#" class="platform-btn">Google Play</a>
@@ -725,8 +803,207 @@
         </div>
     </section>
 
-    <!-- Resto del código (Testimonios, About, Filosofía, Newsletter, Footer) se mantiene igual -->
-    <!-- ... -->
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimonios</h2>
+                <p>Lo que dicen quienes han leído mis libros y participado en mis cursos.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"La verdadera amistad con los caballos es la clave para la comunicación y la comunión, sin sometimiento, sin imposición. Solo este modo operante es la base efectiva para el mutuo aprendizaje y la libertad." Esa es una de las tantas frases que se pueden encontrar en el libro "El silencio de los caballos" de David Castro.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='25' fill='%23ccc'/><text fill='%23333' font-family='Arial' font-size='12' x='25' y='28' dominant-baseline='middle' text-anchor='middle'>P</text></svg>" alt="Pablo Temechuck">
+                        </div>
+                        <div class="author-details">
+                            <h4>Pablo Temechuck</h4>
+                            <p>Lector</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>En una cultura tan hostil; de maltrato y sometimiento para con los caballos, David Castro nos enseña con sencillez y claridad, que existen otras maneras de llegar a ellos... la humildad y la observación, el respeto y por sobre todo El Amor por estos Seres Maravillosos.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='25' fill='%23ccc'/><text fill='%23333' font-family='Arial' font-size='12' x='25' y='28' dominant-baseline='middle' text-anchor='middle'>S</text></svg>" alt="Susana Coca">
+                        </div>
+                        <div class="author-details">
+                            <h4>Susana Coca</h4>
+                            <p>Lectora</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Se trata de un texto de gran trascendencia, humanidad en el sentido más profundo. El universo de aquellos animales que han servido al hombre por milenios, está, con este libro como ejemplo y guía, cambiando.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='25' fill='%23ccc'/><text fill='%23333' font-family='Arial' font-size='12' x='25' y='28' dominant-baseline='middle' text-anchor='middle'>D</text></svg>" alt="Dante Anzolini">
+                        </div>
+                        <div class="author-details">
+                            <h4>Dante Anzolini</h4>
+                            <p>Lector</p>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>La verdad es que tengo que hacer un antes y un después, de haber empezado a leer lo que escribes. Ahora estoy viviendo una etapa de transición bastante dura. Lo que si se, es que he hecho muchas cosas mal por ignorancia y ahora puedo verlo desde otro enfoque.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><circle cx='25' cy='25' r='25' fill='%23ccc'/><text fill='%23333' font-family='Arial' font-size='12' x='25' y='28' dominant-baseline='middle' text-anchor='middle'>G</text></svg>" alt="Gustavo Di Gioia">
+                        </div>
+                        <div class="author-details">
+                            <h4>Gustavo Di Gioia</h4>
+                            <p>Lector</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi" class="section">
+        <div class="container">
+            <div class="about">
+                <div class="about-image">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='400' viewBox='0 0 500 400'><rect fill='%23ddd' width='500' height='400'/><text fill='%23333' font-family='Arial' font-size='20' x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>Imagen de David Castro</text></svg>" alt="David Castro - Fundador de la primera escuela de hipología en Latinoamérica">
+                </div>
+                <div class="about-content">
+                    <h2>Sobre David Castro</h2>
+                    <p>Fundador de la primera escuela de Hipología en Latinoamérica y referente internacional en educación equina consciente. Tras años como educador tradicional, cuestionó los métodos basados en la coerción y desarrolló un enfoque revolucionario basado en el respeto mutuo y la neurociencia.</p>
+                    <p>Su trabajo ha sido destacado en medios como La Vanguardia y Bichos de Campo, y ha impulsado un movimiento de conciencia sobre el trato ético a los caballos.</p>
+                    <a href="#contacto" class="btn">Conoce más sobre mi historia</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="filosofia" class="section philosophy">
+        <div class="container">
+            <div class="section-title">
+                <h2>Una nueva forma de relacionarnos</h2>
+                <p>Partiendo del principio de reconocer en el caballo a un ser esencialmente emocional, inteligente y social</p>
+            </div>
+            
+            <div class="philosophy-content">
+                <p>Casi todos hemos soñado en algún momento poder contactar con caballos. Hemos soñado con una relación única y especial o con tener el don que nos acerque de manera natural y plena a esta criatura, para que ella nos haga entrega de su gran poder y gracia, su bello espíritu de libertad y su incondicional amor.</p>
+                
+                <p>Pero… ¿Qué es lo que siente el caballo con respecto a esto? ¿Qué es lo que necesita? ¿Quién o qué es el caballo? ¿Es posible el encuentro sin este entendimiento?</p>
+                
+                <p>Partiendo del principio de reconocer en el caballo a un ser esencialmente emocional, inteligente y social, poseedor de voluntad propia y necesidades específicas, podremos desplegar su potencial de interacción con el hombre, en un marco de respeto mutuo y libertad de expresión.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Suscríbete a mi newsletter</h2>
+            <p>Recibe artículos exclusivos, consejos sobre educación equina consciente y avisos de nuevos cursos y publicaciones.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Tu correo electrónico" required>
+                <button type="submit" class="newsletter-btn">Suscribirme</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>David Castro</h3>
+                    <p>Revolucionando la relación humano-caballo a través del respeto, la ciencia y la conexión auténtica.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#libros">Libros</a></li>
+                        <li><a href="#acompanamiento">Acompañamiento</a></li>
+                        <li><a href="#filosofia">Filosofía</a></li>
+                        <li><a href="#sobre-mi">Sobre mí</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contacto@davidcastro.com">contacto@davidcastro.com</a></li>
+                        <li><a href="#contacto">Formulario de contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Sígueme</h3>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><span>FB</span></a>
+                        <a href="#" title="Instagram"><span>IG</span></a>
+                        <a href="#" title="YouTube"><span>YT</span></a>
+                        <a href="#" title="Twitter"><span>TW</span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 David Castro. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Simple form validation for newsletter
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                if (emailInput.value && emailInput.value.includes('@')) {
+                    alert('¡Gracias por suscribirte! Pronto recibirás noticias y contenido exclusivo.');
+                    emailInput.value = '';
+                } else {
+                    alert('Por favor, introduce una dirección de correo electrónico válida.');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
