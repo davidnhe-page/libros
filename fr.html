@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revue Chevalier - Version Française</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background-color: #5a5a5a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .a4-double-page {
+            display: flex;
+            width: 794px; /* A4 width x2 + gap */
+            height: 595px; /* A4 height */
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background: white;
+            padding: 12px;
+            border-radius: 3px;
+        }
+        
+        .page {
+            width: 391px; /* A4 width */
+            height: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .left-page {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+        
+        .magazine-header {
+            background: #2c3e50;
+            color: white;
+            padding: 5px 0;
+            text-align: center;
+            border-bottom: 2px solid #8e6c4b;
+            height: auto;
+        }
+        
+        .magazine-title {
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+        
+        .magazine-subtitle {
+            font-size: 0.6rem;
+            font-style: italic;
+            opacity: 0.9;
+            margin-top: 2px;
+        }
+        
+        .image-container {
+            height: 58%; /* Aumentado en 30% */
+            overflow-y: scroll;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .horse-image {
+            width: 100%;
+            display: block;
+        }
+        
+        .quote-section {
+            padding: 10px 15px;
+            background: #f8f5f0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .image-quote {
+            font-size: 1rem;
+            line-height: 1.3;
+            font-style: italic;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .image-author {
+            font-weight: bold;
+            color: #8e6c4b;
+            font-size: 0.7rem;
+            text-align: center;
+        }
+        
+        .interview-beginning {
+            padding: 12px 15px;
+        }
+        
+        .interview-title {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+        
+        .interview-subtitle {
+            font-size: 0.7rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .interview-content {
+            font-size: 0.75rem;
+        }
+        
+        .question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 8px 0 4px;
+            display: block;
+            font-size: 0.8rem;
+        }
+        
+        .answer {
+            margin-bottom: 6px;
+            padding-left: 6px;
+            border-left: 1px solid #e0e0e0;
+            text-align: justify;
+        }
+        
+        .continue-indicator {
+            text-align: center;
+            margin-top: 8px;
+            font-style: italic;
+            color: #8e6c4b;
+            font-size: 0.7rem;
+        }
+        
+        .right-page {
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .highlight-box {
+            background: #f8f5f0;
+            border-left: 2px solid #8e6c4b;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 0 2px 2px 0;
+            font-size: 0.8rem;
+        }
+        
+        .reader-question {
+            background: #e8f4f8;
+            padding: 8px;
+            border-radius: 2px;
+            margin: 10px 0;
+            border-left: 2px solid #3498db;
+            font-size: 0.8rem;
+        }
+        
+        .stat-box {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 0.8rem;
+        }
+        
+        .stat-icon {
+            font-size: 1rem;
+            margin-right: 6px;
+            color: #8e6c4b;
+        }
+        
+        .hashtag {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 15px;
+            margin-top: 10px;
+            font-size: 0.7rem;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 6px;
+            right: 10px;
+            font-size: 0.6rem;
+            color: #7f8c8d;
+        }
+        
+        /* Personalizar scrollbar para el contenedor de imagen */
+        .image-container::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        .image-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .image-container::-webkit-scrollbar-thumb {
+            background: #8e6c4b;
+            border-radius: 2px;
+        }
+        
+        .image-container::-webkit-scrollbar-thumb:hover {
+            background: #7a5a3a;
+        }
+        
+        @media (max-width: 850px) {
+            body {
+                padding: 10px;
+            }
+            
+            .a4-double-page {
+                flex-direction: column;
+                width: 100%;
+                height: auto;
+            }
+            
+            .page {
+                width: 100%;
+                height: 420px;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="a4-double-page">
+        <!-- Page de gauche avec sections séparées -->
+        <div class="page left-page">
+            <div class="magazine-header">
+                <h1 class="magazine-title">Revue Chevalier</h1>
+                <p class="magazine-subtitle">Équestre • Culture • Conscience</p>
+            </div>
+            
+            <div class="image-container">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkPRLNM4IZl2LSP8y1ad3Ze-_AQ7efDvmMaBuzfNFxuaWak2cNfsBpzDe44J57T2qnSjLE-sJtr9PQimGbtjMcub6a9_MosHs9CmKK5SpoFxR0t1W7t30PobK9ihqXtkV-xrUEPYmLGsQ/s1600/contratapa+lesusurre.jpg" alt="Cheval dans une attitude réfléchie" class="horse-image">
+            </div>
+            
+            <div class="quote-section">
+                <div class="image-quote">
+                    "Le cheval n'est pas un projet humain. C'est un projet de la nature."
+                </div>
+                <div class="image-author">— David, auteur de "Le Silence des Chevaux"</div>
+            </div>
+            
+            <div class="interview-beginning">
+                <h2 class="interview-title">Écoutons-nous vraiment les chevaux ?</h2>
+                <p class="interview-subtitle">Une conversation avec David sur la domestication, l'éthique et le langage silencieux du cheval</p>
+                
+                <div class="interview-content">
+                    <span class="question">Revue Chevalier: David, pourriez-vous nous développer votre idée du cheval comme "projet de la nature" ?</span>
+                    <p class="answer">Le cheval a évolué pendant 55 millions d'années avant que le premier humain ne le monte. Sa biologie, sa psychologie, sa manière d'habiter le monde... tout était déjà parfaitement conçu. Nous sommes arrivés après. Et au lieu d'apprendre de ce projet naturel, nous l'avons interrompu. Nous l'avons transformé en notre projet.</p>
+                    
+                    <div class="continue-indicator">Suite à la page suivante →</div>
+                </div>
+            </div>
+            
+            <div class="page-number">1</div>
+        </div>
+        
+        <!-- Page de droite avec contenu -->
+        <div class="page right-page">
+            <h2 class="interview-title">Écoutons-nous vraiment les chevaux ? (suite)</h2>
+            
+            <div class="interview-content">
+                <span class="question">Revue Chevalier: Où se situe la première grande fracture ?</span>
+                
+                <span class="question">David:</span>
+                <p class="answer">Dans la domestication. Les gens croient que domestiquer signifie "amener à la maison". Mais nous ne l'avons pas amené à notre maison : nous l'avons sorti de la sienne pour l'enfermer. Et nous avons créé la fiction que nous lui faisions une faveur. "Nous lui avons donné un abri en échange de sa liberté, et nous avons appelé cela de la compassion."</p>
+                
+                <div class="reader-question">
+                    <span class="question">Pour nos lecteurs:</span>
+                    <p>Pensez-vous qu'un cheval préfère la sécurité d'une écurie à la liberté des prairies ?</p>
+                </div>
+                
+                <span class="question">David:</span>
+                <p class="answer">"Quand je fais ce que je fais, que ressent le cheval ?" Cette question est cruciale. Le cheval ne peut pas nous répondre avec des mots. Mais il nous répond avec son corps. Par ses ulcères gastriques, ses stéréotypies, ce regard déconnecté que nous voyons chez tant de chevaux à l'écurie. C'est son langage.</p>
+                
+                <div class="highlight-box">
+                    <p>"L'amour ne suffit pas s'il n'est pas accompagné de compréhension." — David</p>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-text">"80% des chevaux domestiques présentent des ulcères gastriques." (Journal of Equine Veterinary Science, 2022)</div>
+                </div>
+                
+                <div class="reader-question">
+                    <p>Êtes-vous prêt(e) à remettre en question votre relation avec votre cheval ?</p>
+                    <div class="hashtag">#ÉcoutonsLeCheval</div>
+                </div>
+            </div>
+            
+            <div class="page-number">2</div>
+        </div>
+    </div>
+</body>
+</html>
