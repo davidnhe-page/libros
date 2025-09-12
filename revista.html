@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revista Chevalier - Entrevista con David</title>
     <style>
-        /* Estilos generales */
         * {
             margin: 0;
             padding: 0;
@@ -14,185 +13,168 @@
         }
         
         body {
-            background-color: #f9f7f2;
+            background-color: #f5f2ea;
             color: #333;
-            line-height: 1.6;
-            padding: 20px;
+            line-height: 1.5;
+            padding: 15px;
         }
         
         .magazine-container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
             overflow: hidden;
         }
         
-        /* Cabecera de la revista */
         .magazine-header {
             background: #2c3e50;
             color: white;
-            padding: 25px;
+            padding: 15px;
             text-align: center;
-            border-bottom: 5px solid #8e6c4b;
+            border-bottom: 4px solid #8e6c4b;
         }
         
         .magazine-title {
-            font-size: 2.8rem;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            font-weight: bold;
-            text-transform: uppercase;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
         }
         
         .magazine-subtitle {
-            font-size: 1.2rem;
+            font-size: 0.9rem;
             font-style: italic;
             opacity: 0.9;
         }
         
-        /* Contenido de doble página */
-        .double-page {
+        .content-container {
             display: flex;
-            min-height: 80vh;
+            padding: 20px;
+            gap: 20px;
         }
         
-        /* Página izquierda con imagen */
-        .left-page {
-            flex: 1;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkPRLNM4IZl2LSP8y1ad3Ze-_AQ7efDvmMaBuzfNFxuaWak2cNfsBpzDe44J57T2qnSjLE-sJtr9PQimGbtjMcub6a9_MosHs9CmKK5SpoFxR0t1W7t30PobK9ihqXtkV-xrUEPYmLGsQ/s1600/contratapa+lesusurre.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end;
-            padding: 30px;
-            position: relative;
+        .image-column {
+            flex: 0 0 35%;
         }
         
-        .image-quote {
-            color: white;
-            font-size: 1.8rem;
-            text-align: right;
-            line-height: 1.4;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-            max-width: 90%;
-            margin-left: auto;
+        .horse-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .image-caption {
+            margin-top: 10px;
             font-style: italic;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #666;
         }
         
-        .image-author {
-            color: white;
-            text-align: right;
-            margin-top: 15px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-        }
-        
-        /* Página derecha con contenido */
-        .right-page {
+        .text-column {
             flex: 1;
-            padding: 40px;
-            background: white;
-            overflow-y: auto;
         }
         
         .interview-title {
-            font-size: 2.2rem;
+            font-size: 1.5rem;
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             border-bottom: 2px solid #8e6c4b;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
         
         .interview-subtitle {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             color: #7f8c8d;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-style: italic;
         }
         
         .interview-content {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
         }
         
         .question {
             font-weight: bold;
             color: #2c3e50;
-            margin: 20px 0 10px;
+            margin: 15px 0 8px;
             display: block;
         }
         
         .answer {
-            margin-bottom: 15px;
-            padding-left: 15px;
-            border-left: 3px solid #e0e0e0;
+            margin-bottom: 12px;
+            padding-left: 12px;
+            border-left: 2px solid #e0e0e0;
         }
         
         .highlight-box {
             background: #f8f5f0;
-            border-left: 4px solid #8e6c4b;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 5px 5px 0;
+            border-left: 3px solid #8e6c4b;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 0 3px 3px 0;
+            font-size: 0.9rem;
         }
         
         .reader-question {
             background: #e8f4f8;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 25px 0;
-            border-left: 4px solid #3498db;
+            padding: 12px;
+            border-radius: 3px;
+            margin: 15px 0;
+            border-left: 3px solid #3498db;
+            font-size: 0.9rem;
         }
         
         .stat-box {
             display: flex;
             align-items: center;
-            margin: 20px 0;
+            margin: 12px 0;
+            font-size: 0.9rem;
         }
         
         .stat-icon {
-            font-size: 2rem;
-            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-right: 10px;
             color: #8e6c4b;
-        }
-        
-        .stat-text {
-            font-size: 1rem;
         }
         
         .hashtag {
             display: inline-block;
             background: #2c3e50;
             color: white;
-            padding: 8px 15px;
-            border-radius: 30px;
-            margin-top: 20px;
-            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 0.8rem;
         }
         
-        /* Footer de la revista */
         .magazine-footer {
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
+            padding: 15px;
+            font-size: 0.8rem;
         }
         
-        /* Responsive */
-        @media (max-width: 900px) {
-            .double-page {
+        @media (max-width: 768px) {
+            .content-container {
                 flex-direction: column;
             }
             
-            .left-page {
-                min-height: 50vh;
+            .image-column {
+                flex: 1;
+                margin-bottom: 15px;
+            }
+            
+            .horse-image {
+                height: 250px;
             }
             
             .magazine-title {
-                font-size: 2rem;
+                font-size: 1.7rem;
             }
         }
     </style>
@@ -204,39 +186,32 @@
             <p class="magazine-subtitle">Ecuestre • Cultura • Conciencia</p>
         </header>
         
-        <div class="double-page">
-            <!-- Página izquierda con imagen -->
-            <div class="left-page">
-                <div>
-                    <p class="image-quote">"El caballo no es un proyecto humano. Es un proyecto de la naturaleza."</p>
-                    <p class="image-author">— David, autor de "El Silencio de los Caballos"</p>
-                </div>
+        <div class="content-container">
+            <div class="image-column">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkPRLNM4IZl2LSP8y1ad3Ze-_AQ7efDvmMaBuzfNFxuaWak2cNfsBpzDe44J57T2qnSjLE-sJtr9PQimGbtjMcub6a9_MosHs9CmKK5SpoFxR0t1W7t30PobK9ihqXtkV-xrUEPYmLGsQ/s1600/contratapa+lesusurre.jpg" alt="Caballo en actitud reflexiva" class="horse-image">
+                <p class="image-caption">"El caballo no es un proyecto humano. Es un proyecto de la naturaleza." — David</p>
             </div>
             
-            <!-- Página derecha con contenido -->
-            <div class="right-page">
+            <div class="text-column">
                 <h2 class="interview-title">¿Realmente escuchamos a los caballos?</h2>
                 <p class="interview-subtitle">Una conversación con David sobre domesticación, ética y el lenguaje silencioso del caballo</p>
                 
                 <div class="interview-content">
-                    <span class="question">Revista Chevalier: David, antes de comenzar, quiero leer un fragmento de tu conferencia que me parece fundamental:</span>
-                    <p class="answer">"El caballo no es un proyecto humano. Es un proyecto de la naturaleza. Nosotros solo somos sus invitados tardíos, pero actuamos como dueños absolutos de una fiesta a la que nunca supimos llegar a tiempo." ¿Podrías desarrollarnos esta idea?</p>
+                    <span class="question">Revista Chevalier: David, ¿podrías desarrollarnos tu idea sobre el caballo como "proyecto de la naturaleza"?</span>
+                    <p class="answer">El caballo evolucionó durante 55 millones de años antes de que el primer humano lo montara. Su biología, su psicología, su manera de habitar el mundo… todo estaba ya perfectamente diseñado. Nosotros llegamos después. Y en lugar de aprender de ese proyecto natural, lo interrumpimos. Lo convertimos en nuestro proyecto.</p>
+                    
+                    <span class="question">Revista Chevalier: ¿Dónde radica la primera gran fractura?</span>
                     
                     <span class="question">David:</span>
-                    <p class="answer">Imaginen por un momento: el caballo evolucionó durante 55 millones de años antes de que el primer humano lo montara. Su biología, su psicología, su manera de habitar el mundo… todo estaba ya perfectamente diseñado para ser lo que era: un ser libre, social, nómada y adaptado a las grandes llanuras. Nosotros llegamos después. Y en lugar de aprender de ese proyecto natural, lo interrumpimos. Lo convertimos en nuestro proyecto. Como bien dijo el poeta: "Dios tomó un puñado de viento del Sur y creó al caballo diciendo: 'para que seas único y que nunca te confundan con las bestias'". Pero nosotros hemos preferido verlo como un recurso antes que como un milagro.</p>
-                    
-                    <span class="question">Revista Chevalier: Y en ese "proyecto humano", ¿dónde crees que radica la primera gran fractura?</span>
-                    
-                    <span class="question">David:</span>
-                    <p class="answer">En la domesticación. Pero no como acto zootécnico, sino filosófico. La gente cree que domesticar significa "llevar a la casa" (domus = casa). Pero, incluso si creyéramos eso, nosotros no lo llevamos a nuestra casa: lo sacamos de la suya para encerrarlo en una jaula. Y peor aún: creamos la ficción de que le estábamos haciendo un favor. "Le dimos cobijo a cambio de su libertad, y lo llamamos compasión."</p>
+                    <p class="answer">En la domesticación. La gente cree que domesticar significa "llevar a la casa". Pero nosotros no lo llevamos a nuestra casa: lo sacamos de la suya para encerrarlo. Y creamos la ficción de que le estábamos haciendo un favor. "Le dimos cobijo a cambio de su libertad, y lo llamamos compasión."</p>
                     
                     <div class="reader-question">
-                        <span class="question">Revista Chevalier: Quisiera detenerme aquí y preguntar a nuestros lectores:</span>
-                        <p>¿Ustedes creen que un caballo prefiere la seguridad de un establo a la libertad de las praderas? ¿Realmente le "dimos" algo, o le quitamos todo y le devolvimos migajas?</p>
+                        <span class="question">Para nuestros lectores:</span>
+                        <p>¿Creen que un caballo prefiere la seguridad de un establo a la libertad de las praderas?</p>
                     </div>
                     
                     <span class="question">David:</span>
-                    <p class="answer">"¿Cuando hago lo que hago, qué siente el caballo?" Esa pregunta es crucial. Porque el caballo no puede respondernos con palabras. Pero nos responde con su cuerpo. Con sus úlceras gástricas, con sus estereotipias, con esa mirada desconectada que vemos en tantos caballos estabulados. Ese es su lenguaje. Nos está diciendo algo que no queremos oír. Como dice Alexander Nevzorov: "Si simplemente causas dolor a un caballo o incomodidad, ella no se hará amiga de ti". Y esto es lo fundamental de toda relación verdadera.</p>
+                    <p class="answer">"¿Cuando hago lo que hago, qué siente el caballo?" Esa pregunta es crucial. El caballo no puede respondernos con palabras. Pero nos responde con su cuerpo. Con sus úlceras gástricas, con sus estereotipias, con esa mirada desconectada. Ese es su lenguaje.</p>
                     
                     <div class="highlight-box">
                         <p>"El amor no es suficiente si no va acompañado de comprensión." — David</p>
@@ -244,7 +219,7 @@
                     
                     <div class="stat-box">
                         <div class="stat-icon">📊</div>
-                        <div class="stat-text">"80% de los caballos domésticos presentan úlceras gástricas." (Fuente: Journal of Equine Veterinary Science, 2022)</div>
+                        <div class="stat-text">"80% de los caballos domésticos presentan úlceras gástricas." (Journal of Equine Veterinary Science, 2022)</div>
                     </div>
                     
                     <div class="reader-question">
