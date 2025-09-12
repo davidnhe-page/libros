@@ -42,49 +42,77 @@
         }
         
         .left-page {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkPRLNM4IZl2LSP8y1ad3Ze-_AQ7efDvmMaBuzfNFxuaWak2cNfsBpzDe44J57T2qnSjLE-sJtr9PQimGbtjMcub6a9_MosHs9CmKK5SpoFxR0t1W7t30PobK9ihqXtkV-xrUEPYmLGsQ/s1600/contratapa+lesusurre.jpg');
-            background-size: cover;
-            background-position: center;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 25px;
-            color: white;
+            padding: 0;
         }
         
         .magazine-header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 25px;
             text-align: center;
+            border-bottom: 4px solid #8e6c4b;
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .magazine-title {
             font-size: 2.2rem;
             letter-spacing: 2px;
             margin-bottom: 5px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
         
         .magazine-subtitle {
             font-size: 0.9rem;
             font-style: italic;
             opacity: 0.9;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+        
+        .quote-section {
+            height: 30%;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #f8f5f0;
+            text-align: center;
         }
         
         .image-quote {
-            text-align: center;
             font-size: 1.5rem;
             line-height: 1.4;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
             font-style: italic;
-            margin: 20px 0;
+            color: #2c3e50;
+            margin-bottom: 15px;
         }
         
         .image-author {
-            text-align: center;
-            margin-top: 15px;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            color: #8e6c4b;
+            font-size: 0.9rem;
+        }
+        
+        .image-section {
+            height: 50%;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkPRLNM4IZl2LSP8y1ad3Ze-_AQ7efDvmMaBuzfNFxuaWak2cNfsBpzDe44J57T2qnSjLE-sJtr9PQimGbtjMcub6a9_MosHs9CmKK5SpoFxR0t1W7t30PobK9ihqXtkV-xrUEPYmLGsQ/s1600/contratapa+lesusurre.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            color: white;
+        }
+        
+        .image-caption {
+            font-size: 0.8rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            width: 100%;
+            text-align: right;
         }
         
         .right-page {
@@ -191,23 +219,33 @@
                 height: 420px;
                 margin-bottom: 15px;
             }
+            
+            .magazine-header, .quote-section, .image-section {
+                height: auto;
+                min-height: 120px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="a4-double-page">
-        <!-- Página izquierda con imagen -->
+        <!-- Página izquierda con secciones separadas -->
         <div class="page left-page">
             <div class="magazine-header">
                 <h1 class="magazine-title">Revista Chevalier</h1>
                 <p class="magazine-subtitle">Ecuestre • Cultura • Conciencia</p>
             </div>
             
-            <div class="image-quote">
-                "El caballo no es un proyecto humano. Es un proyecto de la naturaleza."
+            <div class="quote-section">
+                <div class="image-quote">
+                    "El caballo no es un proyecto humano. Es un proyecto de la naturaleza."
+                </div>
+                <div class="image-author">— David, autor de "El Silencio de los Caballos"</div>
             </div>
             
-            <div class="image-author">— David, autor de "El Silencio de los Caballos"</div>
+            <div class="image-section">
+                <div class="image-caption">Fotografía: "El Susurro", 2023</div>
+            </div>
             
             <div class="page-number">1</div>
         </div>
